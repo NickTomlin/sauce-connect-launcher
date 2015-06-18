@@ -90,4 +90,12 @@ describe("Sauce Connect Launcher", function () {
     });
   }
 
+  describe("without sauce credentials", function () {
+    it("calls callback with an error", function (done) {
+      sauceConnectLauncher({}, function (err) {
+        expect(err.message).to.contain("No sauce credentials provided");
+        done();
+      });
+    });
+  });
 });
